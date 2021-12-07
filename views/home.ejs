@@ -1,0 +1,48 @@
+<header>Add Project</header>
+<div class="form">
+    <form action="/projects" method="POST">
+        <input styles="font: impact;" type="text" id="input-name" placeholder="Project name" name="name" />
+        <input styles="font: impact;" type="text" id="input-description" placeholder="Description" name="description" />
+        <input styles="font: impact;" type="text" id="input-tags" placeholder="Tags e.g. express ejs" name="tags" />
+        <input type="text" id="inpurt-url" placeholder="Link to repo" name="url" />
+        <button type="submit" id="submit">Submit</button>
+    </form>
+</div>
+<div class="form">
+    <form action="/home" method="POST">
+        <input styles="font: impact;" type="text" id="input-filter" placeholder="Filter by tag" name="filterTags" />
+        <button type="submit" id="submit">Submit</button>
+    </form>
+</div>
+<div>
+    <% if (filter) { %>
+    <% projects.map((project, index) => { %>
+        <% const tags = project.Tags.map(tag => tag.tag) %>
+        <% if (tags.includes(filter)) { %>
+            <p>Name: <%= project.name %></p> 
+            <p>Description: <%= project.description %></p>
+            <p>Tags:
+                <% project.Tags.map((tag, index)=> { %>
+                    <%= tag.tag %><br>
+                <% }) %>
+            </p>
+            <a href="<%= project.url %>"><%= project.url %></a>
+        <% } %>
+    <% }) %>
+    <% } else {%>
+        <% projects.map((project, index) => { %>
+            <p>Name: <%= project.name %></p> 
+            <p>Description: <%= project.description %></p>
+            <p>Tags:
+                <% project.Tags.map((tag, index)=> { %>
+                    <%= tag.tag %><br>
+                <% }) %>
+            </p>
+            <a href="<%= project.url %>"><%= project.url %></a>
+        <% }) %>
+<% } %>
+</div>
+
+
+
+

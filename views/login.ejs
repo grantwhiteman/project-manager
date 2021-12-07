@@ -1,0 +1,19 @@
+<header>Log in</header>
+<div class="form">
+    <form action="login" method="POST">
+        <label for="email">Email</label>
+        <input id="input-email" type="email" name="email" placeholder="Enter email" required>
+        <label for="password">Password</label>
+        <input id="input-password" type="password" name="password" placeholder="Enter password" required>
+        <button id="submit">Log in</button>
+        <p style="color:red;"><%=error%></p>
+    </form>
+</div>
+<div class="form">
+    <p>No account yet? No worries.</p>
+</div>
+<div class="form">
+    <a id="signup" href="/signup">Sign up</a>
+</div>
+
+
