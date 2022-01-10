@@ -50,4 +50,13 @@ router.get('/', async (req, res) => {
 	res.render('../views/home', {projects: projects, filter: req.body.filterTags});
 });
 
+router.delete('/:id', async (req, res) => {
+	await Project.destroy({
+		where: {
+			id: req.params.id
+		}
+	});
+	res.redirect('/home');
+});
+
 module.exports = router;

@@ -39,6 +39,9 @@
                 <% }) %>
             </p>
             <a href="<%= project.url %>"><%= project.url %></a>
+            <form action="/projects/<%= project.id %>?_method=DELETE" method="post">
+                <input id="project-<%= project.id %>-delete" type="submit" value="Delete">
+            </form>
         <% }) %>
 <% } %>
 </div>
